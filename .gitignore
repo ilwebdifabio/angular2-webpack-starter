@@ -25,5 +25,8 @@ npm-debug.log
 # Typescript #
 src/app/*.js
 
+# Yarn #
+yarn.lock
+
 # DEV #
 TODO
