@@ -17,14 +17,13 @@ Thumbs.db
 /node_modules
 npm-debug.log
 
-# Typing #
-/src/typings/tsd/
-/typings/
-/tsd_typings/
 
 # IDE #
 .idea/
 *.swp
+
+# Typescript #
+src/app/*.js
 
 # DEV #
 TODO
