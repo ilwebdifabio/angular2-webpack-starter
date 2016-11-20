@@ -11,6 +11,7 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 
+/*
 if ('production' === ENV) {
   // Production
 
@@ -19,3 +20,4 @@ if ('production' === ENV) {
   // Development
 
 }
+*/

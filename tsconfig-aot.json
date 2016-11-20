@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
@@ -10,12 +10,12 @@
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true
   },
-  "include": [
-    "src/**/*"
+  "files": [
+    "src/app/app.module.ts",
+    "src/main.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "config",
-    "public"
-  ]
+  "angularCompilerOptions": {
+   "genDir": "aot",
+   "skipMetadataEmit" : true
+ }
 }

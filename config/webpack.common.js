@@ -1,14 +1,20 @@
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var helpers = require('./helpers');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
+const helpers = require('./helpers');
+
+const PATHS = {
+  entry: {
+    'polyfills': helpers.root('src','polyfills.ts'),
+    'vendor': helpers.root('src','vendor.ts'),
+    'app': helpers.root('src','main.ts')
+  }
+};
+
 
 module.exports = {
-  entry: {
-    'polyfills': './src/polyfills.ts',
-    'vendor': './src/vendor.ts',
-    'app': './src/app/index.ts'
-  },
+  entry: PATHS.entry,
   resolve: {
     extensions: ['', '.ts', '.js']
   },
@@ -20,7 +26,8 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        loader: 'html'
+        loader: 'html',
+        exclude: ['src/index.html']
       },
       {
         test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
@@ -35,6 +42,10 @@ module.exports = {
         test: /\.css$/,
         include: helpers.root('src', 'app'),
         loader: 'raw'
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },
@@ -43,9 +54,14 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
     }),
-
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
+      template: 'src/index.html',
+      inject: 'body',
+      hash: true
+    }),
+    new WebpackNotifierPlugin({
+      title: 'Angular2 webpack starter',
+      contentImage: helpers.root('src', 'bundle.png')
     })
   ]
 };
