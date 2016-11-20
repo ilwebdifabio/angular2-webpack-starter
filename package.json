@@ -9,8 +9,8 @@
     }
   ],
   "repository": {
-    "type": "git",
-    "url": "git+ssh://git@bitbucket.org:whisher/angular2-webpack-starter.git"
+    "type": "git",            
+    "url": "git+ssh://git@github.com:ilwebdifabio/angular2-webpack-starter.git"
   },
   "scripts": {
     "start": "webpack-dev-server --inline --progress",
