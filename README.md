@@ -5,4 +5,4 @@
 2. npm install or yarn
 3. npm start
 
-* Node version v7.1.0 *
+*Node version v7.1.0*
